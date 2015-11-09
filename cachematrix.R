@@ -1,8 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This is a mechanism for caching matrix inversion
+## We create an object which stores internally both a matrix
+## and a cached solution of inversion
+## Upon request we either give the calculated value, or calculate
+## and store
 
-## Write a short comment describing this function
-
+## makeCacheMatrix is a constructor for a matrix object with cache
 makeCacheMatrix <- function(x = matrix()) {
   s <- NULL
   set <- function(y) {
@@ -18,8 +20,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Write a short comment describing this function
-
+## cacheSolve calculates the inversion of the matrix given
+## If the value is already stored in the cache,
+## we simply give the previously calculated solution
 cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   s <- x$getsolution()
